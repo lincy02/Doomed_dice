@@ -1,0 +1,21 @@
+import itertools
+
+total_combinations = 36
+
+combinations_matrix = [[0] * 6 for _ in range(6)]
+
+for i in range(6):
+    for j in range(6):
+        combinations_matrix[i][j] = (i + 1) + (j + 1)
+
+print("Combinations Matrix:")
+for row in combinations_matrix:
+    print(row)
+
+print("\nProbability of Sums:")
+for i in range(2, 13):
+    sum_count = sum(1 for row in combinations_matrix for num in row if num == i)
+    probability = sum_count / total_combinations
+    print(f"P(Sum = {i}) = {probability}")
+
+
